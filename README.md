@@ -53,7 +53,7 @@ El proyecto está construido desde cero siguiendo el patrón de diseño **Modelo
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/tu-usuario/sistema-valoracion-perfiles.git](https://github.com/tu-usuario/sistema-valoracion-perfiles.git)
+    git clone [https://github.com/guillermo-palacios/sistema-valoracion-perfiles.git](https://github.com/guillermo-palacios/sistema-valoracion-perfiles.git)
     cd sistema-valoracion-perfiles
     ```
 
