@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/esq_dom#"
+     xml:base="http://example.org/esq_dom"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <owl:Ontology rdf:about="http://example.org/esq_dom"/>
+
+
+<!-- Clases para Atributo, Criterio y Valoracion -->
+    <owl:Class rdf:about="#Atributo"/>
+    <owl:Class rdf:about="#Criterio"/>
+    <owl:Class rdf:about="#Valoracion"/>
+
+    <!-- Propiedades de datos (para Valoraciones) -->
+    <owl:DatatypeProperty rdf:about="#puntuacion">
+        <rdfs:domain rdf:resource="#Valoracion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+
+    <!-- Propiedades de datos (para Atributos) -->
+    <owl:DatatypeProperty rdf:about="#nombre">
+        <rdfs:domain rdf:resource="#Atributo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#tipo">
+        <rdfs:domain rdf:resource="#Atributo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#posiblesValores">
+        <rdfs:domain rdf:resource="#Atributo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#valorInicial">
+        <rdfs:domain rdf:resource="#Atributo"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <!-- Propiedades de datos (para Criterios) -->
+    <owl:DatatypeProperty rdf:about="#tipoComparacion">
+        <rdfs:domain rdf:resource="#Criterio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#tipoResultado">
+        <rdfs:domain rdf:resource="#Criterio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#puntuacion">
+        <rdfs:domain rdf:resource="#Criterio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#valor">
+        <rdfs:domain rdf:resource="#Criterio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="#obligatoria">
+        <rdfs:domain rdf:resource="#Criterio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+
+    <!-- Propiedad de conexión entre Criterio y Atributos -->
+    <owl:ObjectProperty rdf:about="#atributo">
+        <rdfs:domain rdf:resource="#Criterio"/>
+        <rdfs:range rdf:resource="#Atributo"/>
+    </owl:ObjectProperty>
+
+    <!-- Propiedad de conexión entre Criterio y Valoracion -->
+    <owl:ObjectProperty rdf:about="#valoracion">
+        <rdfs:domain rdf:resource="#Criterio"/>
+        <rdfs:range rdf:resource="#Valoracion"/>
+    </owl:ObjectProperty>
+
+</rdf:RDF>

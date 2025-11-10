@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/becas#"
+     xml:base="http://example.org/becas"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:esq_dom="http://example.org/esq_dom#">
+
+    <owl:Ontology rdf:about="http://example.org/becas">
+        <owl:imports rdf:resource="http://example.org/esq_dom"/>
+    </owl:Ontology>
+
+<!-- Instancias de Valoraciones -->
+    <owl:NamedIndividual rdf:about="#General">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Valoracion"/>
+        <esq_dom:nombre>General</esq_dom:nombre>
+        <esq_dom:puntuacion>100</esq_dom:puntuacion>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#MEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Valoracion"/>
+        <esq_dom:nombre>MEC</esq_dom:nombre>
+        <esq_dom:puntuacion>110</esq_dom:puntuacion>
+    </owl:NamedIndividual>
+
+<!-- Instancias de Atributos -->
+    <owl:NamedIndividual rdf:about="#Edad">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Atributo"/>
+        <esq_dom:nombre>Edad</esq_dom:nombre>
+        <esq_dom:tipo>int</esq_dom:tipo>
+        <esq_dom:valorInicial>20</esq_dom:valorInicial>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Ingles">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Atributo"/>
+        <esq_dom:nombre>Nivel de ingles</esq_dom:nombre>
+        <esq_dom:tipo>multiple</esq_dom:tipo>
+        <esq_dom:posiblesValores>Ninguno</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>B1</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>B2</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>C1</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>C2</esq_dom:posiblesValores>
+        <esq_dom:valorInicial>Ninguno</esq_dom:valorInicial>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Dinero">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Atributo"/>
+        <esq_dom:nombre>Patrimonio familiar</esq_dom:nombre>
+        <esq_dom:tipo>int</esq_dom:tipo>
+        <esq_dom:valorInicial>10000</esq_dom:valorInicial>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Nota">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Atributo"/>
+        <esq_dom:nombre>Nota media</esq_dom:nombre>
+        <esq_dom:tipo>int</esq_dom:tipo>
+        <esq_dom:valorInicial>8</esq_dom:valorInicial>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Hermanos">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Atributo"/>
+        <esq_dom:nombre>Tiene hermanos</esq_dom:nombre>
+        <esq_dom:tipo>bool</esq_dom:tipo>
+        <esq_dom:valorInicial>True</esq_dom:valorInicial>
+    </owl:NamedIndividual>
+
+<!-- Instancias de Criterios Beca General -->
+    <owl:NamedIndividual rdf:about="#CriterioEdadGeneral">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Edad</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Edad"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>año</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>[16,26]</esq_dom:valor>
+        <esq_dom:obligatoria>true</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNotaMedia[5-7]General">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nota media[5-7]</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Nota"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>puntos</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>20</esq_dom:puntuacion>
+        <esq_dom:valor>[5,7]</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNotaMedia[7-8]General">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nota media[7-8]</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Nota"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>puntos</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>30</esq_dom:puntuacion>
+        <esq_dom:valor>[7,8]</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNotaMedia[8-10]General">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nota media[8-10]</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Nota"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>puntos</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>50</esq_dom:puntuacion>
+        <esq_dom:valor>[8,10]</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-NingunoGeneral">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-Ninguno</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>0</esq_dom:puntuacion>
+        <esq_dom:valor>Ninguno</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-B1General">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-B1</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>5</esq_dom:puntuacion>
+        <esq_dom:valor>B1</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-B2General">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-B2</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>B2</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-C1General">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-C1</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>20</esq_dom:puntuacion>
+        <esq_dom:valor>C1</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-C2General">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-C2</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>30</esq_dom:puntuacion>
+        <esq_dom:valor>C2</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioPatrimonioFamiliarGeneral">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Patrimonio familiar</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Dinero"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>euros</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>30</esq_dom:puntuacion>
+        <esq_dom:valor>[0,80000]</esq_dom:valor>
+        <esq_dom:obligatoria>true</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTieneHermanosGeneral">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Tiene hermanos</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Hermanos"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>True</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#General"/>
+    </owl:NamedIndividual>
+
+
+<!-- Instancias de Criterios Beca MEC -->
+    <owl:NamedIndividual rdf:about="#CriterioEdadMEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Edad</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Edad"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>año</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>[16,26]</esq_dom:valor>
+        <esq_dom:obligatoria>true</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNotaMedia[5-7]MEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nota media[5-7]</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Nota"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>puntos</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>20</esq_dom:puntuacion>
+        <esq_dom:valor>[5,7]</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNotaMedia[7-8]MEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nota media[7-8]</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Nota"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>puntos</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>30</esq_dom:puntuacion>
+        <esq_dom:valor>[7,8]</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNotaMedia[8-10]MEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nota media[8-10]</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Nota"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>puntos</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>50</esq_dom:puntuacion>
+        <esq_dom:valor>[8,10]</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-NingunoMEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-Ninguno</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>0</esq_dom:puntuacion>
+        <esq_dom:valor>Ninguno</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-B1MEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-B1</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>0</esq_dom:puntuacion>
+        <esq_dom:valor>B1</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-B2MEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-B2</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>B2</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-C1MEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-C1</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>15</esq_dom:puntuacion>
+        <esq_dom:valor>C1</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioNivelIngles-C2MEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-C2</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>20</esq_dom:puntuacion>
+        <esq_dom:valor>C2</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioPatrimonioFamiliarMEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Patrimonio familiar</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Dinero"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>euros</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>30</esq_dom:puntuacion>
+        <esq_dom:valor>[0,80000]</esq_dom:valor>
+        <esq_dom:obligatoria>true</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTieneHermanosMEC">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Tiene hermanos</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Hermanos"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>True</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#MEC"/>
+    </owl:NamedIndividual>
+
+</rdf:RDF>

@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/puestoTrabajo#"
+     xml:base="http://example.org/puestoTrabajo"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:esq_dom="http://example.org/esq_dom#">
+
+    <owl:Ontology rdf:about="http://example.org/puestoTrabajo">
+        <owl:imports rdf:resource="http://example.org/esq_dom"/>
+    </owl:Ontology>
+
+<!-- Instancias de Valoraciones -->
+    <owl:NamedIndividual rdf:about="#Secretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Valoracion"/>
+        <esq_dom:nombre>Secretario</esq_dom:nombre>
+        <esq_dom:puntuacion>90</esq_dom:puntuacion>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Gerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Valoracion"/>
+        <esq_dom:nombre>Gerente</esq_dom:nombre>
+        <esq_dom:puntuacion>100</esq_dom:puntuacion>
+    </owl:NamedIndividual>
+
+<!-- Instancias de Atributos -->
+    <owl:NamedIndividual rdf:about="#Edad">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Atributo"/>
+        <esq_dom:nombre>Edad</esq_dom:nombre>
+        <esq_dom:tipo>int</esq_dom:tipo>
+        <esq_dom:valorInicial>20</esq_dom:valorInicial>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Ingles">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Atributo"/>
+        <esq_dom:nombre>Nivel de ingles</esq_dom:nombre>
+        <esq_dom:tipo>multiple</esq_dom:tipo>
+        <esq_dom:posiblesValores>Ninguno</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>B1</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>B2</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>C1</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>C2</esq_dom:posiblesValores>
+        <esq_dom:valorInicial>Ninguno</esq_dom:valorInicial>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Titulacion">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Atributo"/>
+        <esq_dom:nombre>Mayor titulación académica</esq_dom:nombre>
+        <esq_dom:tipo>multiple</esq_dom:tipo>
+        <esq_dom:posiblesValores>ESO</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>Bachiller</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>Grado Medio</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>Grado Superior</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>Grado Universitario</esq_dom:posiblesValores>
+        <esq_dom:posiblesValores>Master</esq_dom:posiblesValores>
+        <esq_dom:valorInicial>ESO</esq_dom:valorInicial>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Experiencia">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Atributo"/>
+        <esq_dom:nombre>Años de experiencia</esq_dom:nombre>
+        <esq_dom:tipo>int</esq_dom:tipo>
+        <esq_dom:valorInicial>3</esq_dom:valorInicial>
+    </owl:NamedIndividual>
+
+<!-- Instancias de Criterios Puesto de Secretario -->
+    <owl:NamedIndividual rdf:about="#CriterioEdadSecretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Edad</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Edad"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>año</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>[18,50]</esq_dom:valor>
+        <esq_dom:obligatoria>true</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesNingunoSecretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles - Ninguno</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>0</esq_dom:puntuacion>
+        <esq_dom:valor>Ninguno</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesB1Secretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles - B1</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>5</esq_dom:puntuacion>
+        <esq_dom:valor>B1</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesB2Secretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles - B2</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>B2</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesC1Secretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles - C1</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>20</esq_dom:puntuacion>
+        <esq_dom:valor>C1</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesC2Secretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles - C2</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>30</esq_dom:puntuacion>
+        <esq_dom:valor>C2</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioExperienciaSecretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Experiencia laboral</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Experiencia"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>año</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>30</esq_dom:puntuacion>
+        <esq_dom:valor>[3,60]</esq_dom:valor>
+        <esq_dom:obligatoria>true</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionESOSecretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - ESO</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>ESO</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionBachillerSecretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Bachiller</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>20</esq_dom:puntuacion>
+        <esq_dom:valor>Bachiller</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionGradoMedioSecretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Grado Medio</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>15</esq_dom:puntuacion>
+        <esq_dom:valor>Grado Medio</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionGradoSuperiorSecretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Grado Superior</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>25</esq_dom:puntuacion>
+        <esq_dom:valor>Grado Superior</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionUniversitariaSecretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Grado Universitario</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>40</esq_dom:puntuacion>
+        <esq_dom:valor>Grado Universitario</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionMasterSecretario">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Master</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>50</esq_dom:puntuacion>
+        <esq_dom:valor>Master</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Secretario"/>
+    </owl:NamedIndividual>
+
+
+<!-- Instancias de Criterios Puesto de Gerente -->
+    <owl:NamedIndividual rdf:about="#CriterioEdadGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Edad</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Edad"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>año</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>[20,48]</esq_dom:valor>
+        <esq_dom:obligatoria>true</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioEdadGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Edad</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Edad"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>año</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>[20,48]</esq_dom:valor>
+        <esq_dom:obligatoria>true</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesNingunoGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-Ninguno</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>0</esq_dom:puntuacion>
+        <esq_dom:valor>Ninguno</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesB1Gerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-B1</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>0</esq_dom:puntuacion>
+        <esq_dom:valor>B1</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesB2Gerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-B2</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>B2</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesC1Gerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-C1</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>15</esq_dom:puntuacion>
+        <esq_dom:valor>C1</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioInglesC2Gerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Nivel de ingles-C2</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Ingles"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>20</esq_dom:puntuacion>
+        <esq_dom:valor>C2</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioExperienciaGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Experiencia laboral</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Experiencia"/>
+        <esq_dom:tipoComparacion>rango</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado>año</esq_dom:tipoResultado>
+        <esq_dom:puntuacion>30</esq_dom:puntuacion>
+        <esq_dom:valor>[5,60]</esq_dom:valor>
+        <esq_dom:obligatoria>true</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+   
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionESOGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - ESO</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>0</esq_dom:puntuacion>
+        <esq_dom:valor>ESO</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionBachillerGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Bachiller</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>10</esq_dom:puntuacion>
+        <esq_dom:valor>Bachiller</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionGradoMedioGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Grado Medio</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>5</esq_dom:puntuacion>
+        <esq_dom:valor>Grado Medio</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionGradoSuperiorGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Grado Superior</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>15</esq_dom:puntuacion>
+        <esq_dom:valor>Grado Superior</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionGradoUniversitarioGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Grado Universitario</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>30</esq_dom:puntuacion>
+        <esq_dom:valor>Grado Universitario</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#CriterioTitulacionMasterGerente">
+        <rdf:type rdf:resource="http://example.org/esq_dom#Criterio"/>
+        <esq_dom:nombre>Titulación - Master</esq_dom:nombre>
+        <esq_dom:atributo rdf:resource="#Titulacion"/>
+        <esq_dom:tipoComparacion>categorica</esq_dom:tipoComparacion>
+        <esq_dom:tipoResultado></esq_dom:tipoResultado>
+        <esq_dom:puntuacion>60</esq_dom:puntuacion>
+        <esq_dom:valor>Master</esq_dom:valor>
+        <esq_dom:obligatoria>false</esq_dom:obligatoria>
+        <esq_dom:valoracion rdf:resource="#Gerente"/>
+    </owl:NamedIndividual>
+
+
+</rdf:RDF>
